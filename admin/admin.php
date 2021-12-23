@@ -2,39 +2,7 @@
     require 'includes/header.php';
     require 'session_check.php';
 ?>
-    <body class="page-header-fixed">
-        <div class="overlay"></div>
-        <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s1">
-            <h3><span class="pull-left">Chat</span><a href="javascript:void(0);" class="pull-right" id="closeRight"><i class="fa fa-times"></i></a></h3>
-            <div class="slimscroll">
-                <a href="javascript:void(0);" class="showRight2"><img src="assets/images/avatar2.png" alt=""><span>Sandra smith<small>Hi! How're you?</small></span></a>
-                <a href="javascript:void(0);" class="showRight2"><img src="assets/images/avatar3.png" alt=""><span>Amily Lee<small>Hi! How're you?</small></span></a>
-                <a href="javascript:void(0);" class="showRight2"><img src="assets/images/avatar4.png" alt=""><span>Christopher Palmer<small>Hi! How're you?</small></span></a>
-                <a href="javascript:void(0);" class="showRight2"><img src="assets/images/avatar5.png" alt=""><span>Nick Doe<small>Hi! How're you?</small></span></a>
-                <a href="javascript:void(0);" class="showRight2"><img src="assets/images/avatar2.png" alt=""><span>Sandra smith<small>Hi! How're you?</small></span></a>
-                <a href="javascript:void(0);" class="showRight2"><img src="assets/images/avatar3.png" alt=""><span>Amily Lee<small>Hi! How're you?</small></span></a>
-                <a href="javascript:void(0);" class="showRight2"><img src="assets/images/avatar4.png" alt=""><span>Christopher Palmer<small>Hi! How're you?</small></span></a>
-                <a href="javascript:void(0);" class="showRight2"><img src="assets/images/avatar5.png" alt=""><span>Nick Doe<small>Hi! How're you?</small></span></a>
-            </div>
-		</nav>
 
-        <div class="menu-wrap">
-            <nav class="profile-menu">
-                <div class="profile"><img src="assets/images/profile-menu-image.png" width="60" alt="David Green"/><span>David Green</span></div>
-                <div class="profile-menu-list">
-                    <a href="#"><i class="fa fa-envelope"></i><span>Messages</span></a>
-                </div>
-            </nav>
-            <button class="close-button" id="close-button">Close Menu</button>
-        </div>
-        <form class="search-form" action="#" method="GET">
-            <div class="input-group">
-                <input type="text" name="search" class="form-control search-input" placeholder="Search...">
-                <span class="input-group-btn">
-                    <button class="btn btn-default close-search waves-effect waves-button waves-classic" type="button"><i class="fa fa-times"></i></button>
-                </span>
-            </div><!-- Input Group -->
-        </form><!-- Search Form -->
 
         <main class="page-content content-wrap">
             <div class="navbar">
@@ -56,9 +24,7 @@
                                 <li>		
                                     <a href="javascript:void(0);" class="waves-effect waves-button waves-classic sidebar-toggle"><i class="fa fa-bars"></i></a>
                                 </li>
-                                <li>
-                                    <a href="#cd-nav" class="waves-effect waves-button waves-classic cd-nav-trigger"><i class="fa fa-diamond"></i></a>
-                                </li>
+                                
                                 <li>		
                                     <a href="javascript:void(0);" class="waves-effect waves-button waves-classic toggle-fullscreen"><i class="fa fa-expand"></i></a>
                                 </li>
@@ -211,11 +177,11 @@
                                         <li role="presentation"><a href="profile.html"><i class="fa fa-user"></i>Profile</a></li>
                                         <li role="presentation"><a href="inbox.html"><i class="fa fa-envelope"></i>Inbox<span class="badge badge-success pull-right">4</span></a></li>
                                         <li role="presentation" class="divider"></li>
-                                        <li role="presentation"><a href="login.html"><i class="fa fa-sign-out m-r-xs"></i>Log out</a></li>
+                                        <li role="presentation"><a href="logout.php"><i class="fa fa-sign-out m-r-xs"></i>Log out</a></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="login.html" class="log-out waves-effect waves-button waves-classic">
+                                    <a href="logout.php" class="log-out waves-effect waves-button waves-classic">
                                         <span><i class="fa fa-sign-out m-r-xs"></i>Log out</span>
                                     </a>
                                 </li>
@@ -242,20 +208,9 @@
                     </div>
                     <ul class="menu accordion-menu">
                         <li class="active"><a href="index.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>Dashboard</p></a></li>
-                        <li><a href="profile.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>Profile</p></a></li>
-                        <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-envelope"></span><p>Mailbox</p><span class="arrow"></span></a>
-                            <ul class="sub-menu">
-                                <li><a href="inbox.html">Inbox</a></li>
-                                <li><a href="inbox-alt.html">Inbox Alt</a></li>
-                                <li><a href="message-view.html">View Message</a></li>
-                                <li><a href="message-view-alt.html">View Message Alt</a></li>
-                                <li><a href="compose.html">Compose</a></li>
-                                <li><a href="compose-alt.html">Compose Alt</a></li>
-                            </ul>
-                        </li>
+                        <!-- <li><a href="profile.html" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>Profile</p></a></li> -->
 
-                       
-                        <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-flash"></span><p>Levels</p><span class="arrow"></span></a>
+                        <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-flash"></span><p>FrontEnd</p><span class="arrow"></span></a>
                             <ul class="sub-menu">
                                 <li class="droplink"><a href="#"><p>Level 1.1</p><span class="arrow"></span></a>
                                     <ul class="sub-menu">
@@ -270,10 +225,22 @@
                                 <li><a href="#">Level 1.2</a></li>
                             </ul>
                         </li>
+
+                        <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-envelope"></span><p>Users</p><span class="arrow"></span></a>
+                            <ul class="sub-menu">
+                                <li><a href="inbox.html">Users Info</a></li>
+                                <li><a href="inbox-alt.html">Add Users</a></li>
+                            </ul>
+                        </li>
+
+                       
+                        
                     </ul>
                 </div><!-- Page Sidebar Inner -->
             </div>
             <!-- Page Sidebar -->
+
+            
 
             <div class="page-inner">
                 <div class="page-title">
@@ -285,6 +252,7 @@
                         </ol>
                     </div>
                 </div>
+                
                 <div id="main-wrapper">
                     <div class="row">
                         <div class="col-lg-3 col-md-6">
@@ -366,69 +334,9 @@
                     </div><!-- Row -->
                     
                 </div><!-- Main Wrapper -->
+            </div>
 
-                <div class="page-footer">
-                    <p class="no-s">2022 &copy; Probizz By <a href="//www.mdabdullah.xyz">Md Abdullah</a> .</p>
-                </div>
-            </div><!-- Page Inner -->
             
-        </main><!-- Page Content -->
-        <nav class="cd-nav-container" id="cd-nav">
-            <header>
-                <h3>Navigation</h3>
-                <a href="#0" class="cd-close-nav">Close</a>
-            </header>
-            <ul class="cd-nav list-unstyled">
-                <li class="cd-selected" data-menu="index">
-                    <a href="javsacript:void(0);">
-                        <span>
-                            <i class="glyphicon glyphicon-home"></i>
-                        </span>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
-                <li data-menu="profile">
-                    <a href="javsacript:void(0);">
-                        <span>
-                            <i class="glyphicon glyphicon-user"></i>
-                        </span>
-                        <p>Profile</p>
-                    </a>
-                </li>
-                <li data-menu="inbox">
-                    <a href="javsacript:void(0);">
-                        <span>
-                            <i class="glyphicon glyphicon-envelope"></i>
-                        </span>
-                        <p>Mailbox</p>
-                    </a>
-                </li>
-                <li data-menu="#">
-                    <a href="javsacript:void(0);">
-                        <span>
-                            <i class="glyphicon glyphicon-tasks"></i>
-                        </span>
-                        <p>Tasks</p>
-                    </a>
-                </li>
-                <li data-menu="#">
-                    <a href="javsacript:void(0);">
-                        <span>
-                            <i class="glyphicon glyphicon-cog"></i>
-                        </span>
-                        <p>Settings</p>
-                    </a>
-                </li>
-                <li data-menu="calendar">
-                    <a href="javsacript:void(0);">
-                        <span>
-                            <i class="glyphicon glyphicon-calendar"></i>
-                        </span>
-                        <p>Calendar</p>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <div class="cd-overlay"></div>
-
-<?php require 'includes/footer.php'; ?>
+            
+            <?php require 'includes/footer.php'; ?>
+            

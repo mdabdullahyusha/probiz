@@ -27,10 +27,7 @@
                                         <?php } unset($_SESSION['pass_invalid'])?>
                                     </div>
                                     <button type="submit" class="btn btn-success btn-block">Login</button>
-                                    <p class="text-center m-t-xs text-sm">Do not have an account?</p>
-                                    <a href="register.php" class="btn btn-default btn-block m-t-md">Create an account</a>
                                 </form>
-                                <p class="text-center m-t-xs text-sm">2022 &copy; Modern by <a href="//mdabdullah.xyz" target="_blank">Md Abdullah</a>.</p>
                             </div>
                         </div>
                     </div><!-- Row -->
