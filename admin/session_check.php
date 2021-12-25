@@ -1,7 +1,7 @@
-<?php
-    session_start();
+<!-- <?php
+    // session_start();
 
-    if(!isset($_SESSION['login_korche'])) {
-        header('location:/probiz/admin/login.php');
-    }
-?>
+    // if(!isset($_SESSION['login_korche'])) {
+    //     header('location:/probiz/admin/login.php');
+    // }
+?> -->

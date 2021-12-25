@@ -21,7 +21,6 @@
             $_SESSION['login_korche'] = 'Login Korche Re!';
             $_SESSION['login'] = 'Login Korche Re!';
             $_SESSION['login_name'] = $after_assoc2['name'];
-            // $_SESSION['role'] = $after_assoc2['role'];
             $_SESSION['id'] = $after_assoc2['id'];
             $_SESSION['profile_image'] = $after_assoc2['profile_image'];
             header('location:/probiz/admin/admin.php');

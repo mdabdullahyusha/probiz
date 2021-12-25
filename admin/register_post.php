@@ -6,7 +6,6 @@
         $name = $_POST['name'];
         $email = $_POST['email'];
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $confirm_password = $_POST['confirm_password'];
         $profile_image = $_FILES['profile_image'];
 
         date_default_timezone_set('Asia/Dhaka');
@@ -53,17 +52,6 @@
             }
         }
 
-        // Confirm Password Validation
-        if(empty($confirm_password)) {
-            $_SESSION['confirm_password_empty'] = 'Please! Retype Your Password';
-            header('location:register.php');
-        }
-        else {
-            if($password != $confirm_password) {
-                $_SESSION['confirm_password_empty'] = 'Password Did Not Matched. Please! Retype Your Password';
-                header('location:register.php');
-            }
-        }
 
         $after_explode = explode('.', $profile_image['name']);
         $extension = end($after_explode);
