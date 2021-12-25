@@ -208,7 +208,7 @@
                         </div>
                     </div>
                     <ul class="menu accordion-menu">
-                        <li class="active"><a href="/probiz/admin/admin.php" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>Dashboard</p></a></li>
+                        <li><a href="/probiz/admin/admin.php" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>Dashboard</p></a></li>
 
                         <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-envelope"></span><p>Users</p><span class="arrow"></span></a>
                             <ul class="sub-menu">
@@ -219,24 +219,25 @@
 
                         <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>FrontEnd</p><span class="arrow"></span></a>
                             <ul class="sub-menu">
-                                <li class="droplink"><a href="#"><p>Level 1.1</p><span class="arrow"></span></a>
+                                <li class="droplink"><a href="#"><p>Top Contact</p><span class="arrow"></span></a>
                                     <ul class="sub-menu">
-                                        <li class="droplink"><a href="#"><p>Level 2.1</p><span class="arrow"></span></a>
+                                        <!-- <li class="droplink"><a href="#"><p>Contact Info</p><span class="arrow"></span></a>
                                             <ul class="sub-menu">
                                                 <li><a href="#">Level 3.1</a></li>
                                             </ul>
+                                        </li> -->
+                                        <li><a href="/probiz/admin/top_contact/view_contact.php">Contact Info</a></li>
+                                        <li class="droplink"><a href="#"><p>Add Contact</p><span class="arrow"></span></a>
+                                            <ul class="sub-menu">
+                                                <li><a href="/probiz/admin/top_contact/add_contact.php">Left Contact Bar</a></li>
+                                                <li><a href="/probiz/admin/top_contact/add_contact_2.php">Social Icon Bar</a></li>
+                                            </ul>
                                         </li>
-                                        <li><a href="#">Level 2.2</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Level 1.2</a></li>
+                                
                             </ul>
                         </li>
-
-                        
-
-                       
-                        
                     </ul>
                 </div><!-- Page Sidebar Inner -->
             </div>

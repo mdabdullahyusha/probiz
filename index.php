@@ -1,8 +1,20 @@
+<?php
+    session_start();
+    require 'admin/db.php';
+
+    // For Top Contact
+    $select_top_contact = "SELECT * FROM top_contact";
+    $select_top_contact_result = mysqli_query($dbconnect, $select_top_contact);
+    $after_assoc = mysqli_fetch_assoc($select_top_contact_result);
+    
+    // For Social Icon
+    $select_social_icon = "SELECT * FROM social_icon WHERE status = 1";
+    $select_social_icon_result = mysqli_query($dbconnect, $select_social_icon);
+?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
-
-<!-- Mirrored from codeglamour.com/html/18/probizz/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Dec 2021 04:38:51 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -51,8 +63,8 @@
                         <div class="col-12 col-lg-9 col-md-7">
                             <div class="header-contact-info">
                                 <ul>
-                                    <li><i class="fas fa-mobile-alt"></i> +1 12345 67890</li>
-                                    <li><i class="far fa-envelope"></i> support@example.com</li>
+                                    <li><i class="<?= $after_assoc['phone_icon']?>"></i><?= $after_assoc['phone_number']?></li>
+                                    <li><i class="<?= $after_assoc['email_icon']?>"></i> <?= $after_assoc['email']?></li>
                                 </ul>
                             </div>
                         </div>
@@ -60,10 +72,9 @@
                             <div class="header-social text-right">
                                 <ul>
                                     <li><a href="#"><span>Follow Us : </span></a></li>
-                                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-pinterest-square"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                                    <?php foreach($select_social_icon_result as $social) { ?>
+                                    <li><a href="<?= $social['link'] ?>"><i class="<?= $social['social_icon'] ?>"></i></a></li>
+                                    <?php } ?>
                                 </ul>
                             </div>
                         </div>

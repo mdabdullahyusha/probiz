@@ -35,7 +35,7 @@
         <link href="assets/plugins/weather-icons-master/css/weather-icons.min.css" rel="stylesheet" type="text/css"/>	
         <link href="/probiz/admin/assets/plugins/metrojs/MetroJs.min.css" rel="stylesheet" type="text/css"/>	
         <link href="/probiz/admin/assets/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css"/>
-        	
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <!-- Theme Styles -->
         <link href="/probiz/admin/assets/css/modern.min.css" rel="stylesheet" type="text/css"/>
         <link href="/probiz/admin/assets/css/themes/green.css" class="theme-color" rel="stylesheet" type="text/css"/>
