@@ -10,6 +10,35 @@
     // For Social Icon
     $select_social_icon = "SELECT * FROM social_icon WHERE status = 1";
     $select_social_icon_result = mysqli_query($dbconnect, $select_social_icon);
+    
+    // For Logo
+    $select_logo = "SELECT * FROM logos WHERE status = 1";
+    $select_logo_result = mysqli_query($dbconnect, $select_logo);
+    $after_assoc2 = mysqli_fetch_assoc($select_logo_result);
+    
+    // For Menu
+    $select_menu = "SELECT * FROM menus WHERE status = 1";
+    $select_menu_result = mysqli_query($dbconnect, $select_menu);
+    
+    // For Banners
+    $select_banner = "SELECT * FROM banners WHERE status = 1";
+    $select_banner_result = mysqli_query($dbconnect, $select_banner);
+    $after_assoc3 = mysqli_fetch_assoc($select_banner_result);
+    
+    // For Abouts
+    $select_about = "SELECT * FROM abouts WHERE status = 1";
+    $select_about_result = mysqli_query($dbconnect, $select_about);
+    $after_assoc4 = mysqli_fetch_assoc($select_about_result);
+    
+    // For Contact Now
+    $select_contact_now = "SELECT * FROM contact_now WHERE status = 1";
+    $select_contact_now_result = mysqli_query($dbconnect, $select_contact_now);
+    $after_assoc5 = mysqli_fetch_assoc($select_contact_now_result);
+    
+    // For Newsletter
+    $select_newsletter = "SELECT * FROM newsletter WHERE status = 1";
+    $select_newsletter_result = mysqli_query($dbconnect, $select_newsletter);
+    $after_assoc6 = mysqli_fetch_assoc($select_newsletter_result);
 ?>
 
 <!DOCTYPE html>
@@ -88,28 +117,15 @@
             <!-- MAIN NAVBAR -->
                 <nav class="navbar navbar-expand-lg  navbar-dark">
                     <div class="container">
-                        <a class="navbar-brand logo-sticky font-600" href="index.html">ProBizz</a>
+                        <a class="navbar-brand logo-sticky font-600" href="index.php"><img src="/probiz/admin/uploads/logos/<?= $after_assoc2['logo_name']?>" width="250"></a>
                         <button class="navbar-toggler collapsed" data-toggle="collapse" data-target="#navbarNav" aria-expanded="false"><span class="navbar-toggler-icon"></span></button>
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav ml-auto" id="nav">
+                                <?php foreach($select_menu_result as $menu) {?>
                                 <li class="nav-item">
-                                    <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                                    <a class="nav-link js-scroll-trigger" href="<?= $menu['link']?>"><?= $menu['menu_name']?></a>
                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link js-scroll-trigger" href="#services">Services</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link js-scroll-trigger" href="#portfolios">Portfolio</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link js-scroll-trigger" href="#pricing">Pricing</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link js-scroll-trigger" href="#team">Our Team</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-                                </li>
+                                <?php } ?>
                             </ul>
                         </div>
                     </div>
@@ -121,15 +137,15 @@
         <!--End Header-->
 
         <!--Start Banner Section-->
-        <section id="main-banner" class="bg-cover position-relative full-height text-center">
+        <section id="main-banner" style="background: url(/probiz/admin/uploads/banners/<?= $after_assoc3['bg_image']?>); background-size: cover; background-position: center;" class="bg-cover position-relative full-height text-center">
             <div class="overlay"></div>
             <div class="caption-content dp-table">
                 <div class="tbl-cell position-relative">
-                    <h1 class="color-white">We Love Make Things Amazing</h1>
-                    <p class="color-white mt-3">Maecenas class semper class semper sollicitudin lectus lorem iaculis imperdiet aliquam vehicula tempor auctor curabitur pede aenean ornare.
+                    <h1 class="color-white"><?= $after_assoc3['title']?></h1>
+                    <p class="color-white mt-3"><?= $after_assoc3['description']?>
                     </p>
                     <div class="large-btn animated slideInUp">
-                        <a class="btn btn-light mt-5 mr-4" href="#">About Us</a><a class="btn btn-primary mt-5" href="#">Contact</a>
+                        <a class="btn btn-light mt-5 mr-4" href="<?= $after_assoc3['btn_1_link']?>"><?= $after_assoc3['btn_1']?></a><a class="btn btn-primary mt-5" href="<?= $after_assoc3['btn_2_link']?>"><?= $after_assoc3['btn_2']?></a>
                     </div>
                 </div>
             </div>
@@ -187,7 +203,7 @@
                     <!--Start About Image-->
                     <div class="col-lg-6">
                         <div class="about-img">
-                            <img src="front_end/img/about-bg.jpg" class="img-fluid" alt="Image">
+                            <img src="/probiz/admin/uploads/abouts/<?= $after_assoc4['about_image']?>" class="img-fluid" alt="Image">
                         </div>
                     </div>
                     <!--End About Image-->
@@ -195,11 +211,9 @@
                     <!--Start About Content-->
                     <div class="col-lg-6">
                         <div class="about-content">
-                            <h4 class="color-gray">Who We Are</h4>
-                            <h2>A Little Brief  <span class="p-color">About Us</span></h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed aliquam adipisci rem, natus similique vitae.</p>
-                            <p> libero temporibus modi commodi molestias perspiciatis, enim dolorum! Magni tenetur error cum quaerat iste, dolorum explicabo fugiat! Pariatur rerum impedit assumenda at deleniti tempore voluptate, itaque modi et amet magni autem.</p>
-                            <p> libero temporibus modi commodi molestias perspiciatis, enim dolorum! Magni tenetur error cum quaerat iste, dolorum explicabo fugiat! Pariatur rerum impedit assumenda at deleniti tempore voluptate, itaque modi et amet magni autem.</p>
+                            <h4 class="color-gray"><?= $after_assoc4['category']?></h4>
+                            <h2><?= $after_assoc4['title']?></h2>
+                            <p><?= $after_assoc4['description']?></p>
                         </div>
                     </div>
                     <!--End About Content-->
@@ -401,14 +415,14 @@
         <!-- Portfolio Section Ends --> 
 
         <!--Start Call To Action-->
-        <section id="contact-now" class="bg-cover position-relative">
+        <section id="contact-now" style="background: url(/probiz/admin/uploads/contact_now/<?= $after_assoc5['contact_now_image']?>); background-attachment:fixed; background-size:cover;"  class="bg-cover position-relative">
             <div class="overlay"></div>
             <!--Start Container-->
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-lg-8">
                         <div class="contact-now-content">
-                            <h2 class="color-white">We Provide All Kind Of Business Services. <br><span class="p-color"> Do You Need Any Service ?</span></h2>
+                            <h2 class="color-white"><?= $after_assoc5['title_01']?> <br><span class="p-color"> <?= $after_assoc5['title_02']?> </span></h2>
                         </div>
                     </div>
                     <div class="col-12 col-lg-4">
@@ -478,20 +492,20 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="heading text-center">
-                            <h4 class="color-gray">Get Touch With Us</h4>
-                            <h2 class="p-color1">Subscribe <span class="p-color">Newsletter</span></h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum autem similique obcaecati non magni rerum maxime Officia.</p>
+                            <h4 class="color-gray"><?= $after_assoc6['category']?></h4>
+                            <h2 class="p-color1"><?= $after_assoc6['title']?></span></h2>
+                            <p><?= $after_assoc6['description']?></p>
                         </div>
                     </div>
                 </div>
                 <!--End Heading-->
 
                 <!--Start Newsletter Form-->
-                <form>
+                <form action="admin/newsletter/newsletter_mail.php" method="POST">
                     <div class="row justify-content-center no-gutters">
                         <div class="col-lg-4 col-md-6">
                             <div class="newsletter-form">
-                                <input type="text" class="form-control" placeholder="Write Your Email">
+                                <input type="text" name="newsletter_mail" class="form-control" placeholder="Write Your Email">
                             </div>
                         </div>
                         <div class="col-md-2">

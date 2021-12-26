@@ -4,6 +4,10 @@
     $select_user = "SELECT * FROM users WHERE id= $id";
     $select_user_result = mysqli_query($dbconnect, $select_user);
     $after_assoc = mysqli_fetch_assoc($select_user_result);
+
+    $select_message = "SELECT COUNT(*) as unreaded_email FROM newsletter_mail WHERE status = 0";
+    $select_message_result = mysqli_query($dbconnect, $select_message);
+    $after_assoc2 = mysqli_fetch_assoc($select_message_result);
 ?>
 <main class="page-content content-wrap">
     <div class="navbar">
@@ -209,15 +213,15 @@
                     </div>
                     <ul class="menu accordion-menu">
                         <li><a href="/probiz/admin/admin.php" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-home"></span><p>Dashboard</p></a></li>
-
-                        <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-envelope"></span><p>Users</p><span class="arrow"></span></a>
+                        
+                        <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>Users</p><span class="arrow"></span></a>
                             <ul class="sub-menu">
                                 <li><a href="/probiz/admin/users/user_view.php">Users Info</a></li>
                                 <li><a href="/probiz/admin/register.php">Add Users</a></li>
                             </ul>
                         </li>
 
-                        <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-user"></span><p>FrontEnd</p><span class="arrow"></span></a>
+                        <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-envelope"></span><p>FrontEnd</p><span class="arrow"></span></a>
                             <ul class="sub-menu">
                                 <li class="droplink"><a href="#"><p>Top Contact</p><span class="arrow"></span></a>
                                     <ul class="sub-menu">
@@ -236,8 +240,56 @@
                                     </ul>
                                 </li>
                                 
-                            </ul>
-                        </li>
+                                <li class="droplink"><a href="#"><p>Navigation</p><span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        
+                                        <li><a href="/probiz/admin/navigation/view_navigation.php">Navigation Info</a></li>
+                                        <li class="droplink"><a href="#"><p>Add Navigation</p><span class="arrow"></span></a>
+                                            <ul class="sub-menu">
+                                                <li><a href="/probiz/admin/navigation/add_logo.php">Logo</a></li>
+                                                <li><a href="/probiz/admin/navigation/add_menu.php">Menu</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                
+                                <li class="droplink"><a href="#"><p>Banners</p><span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        
+                                        <li><a href="/probiz/admin/banners/view_banner.php">Banners Info</a></li>
+                                        <li><a href="/probiz/admin/banners/add_banner.php"><p>Add Banners</p></a></li>
+                                    </ul>
+                                </li>
+                                
+                                <li class="droplink"><a href="#"><p>About Us</p><span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        
+                                        <li><a href="/probiz/admin/abouts/view_about.php">About Info</a></li>
+                                        <li><a href="/probiz/admin/abouts/add_about.php"><p>Add About</p></a></li>
+                                    </ul>
+                                </li>
+                                
+                                <li class="droplink"><a href="#"><p>Contact Now</p><span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        
+                                        <li><a href="/probiz/admin/contact_now/view_contact_now.php">Contact Now Info</a></li>
+                                        <li><a href="/probiz/admin/contact_now/add_contact_now.php"><p>Add Contact</p></a></li>
+                                    </ul>
+                                </li>
+                                
+                                <li class="droplink"><a href="#"><p>Newsletter</p><span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        
+                                        <li><a href="/probiz/admin/newsletter/view_newsletter.php">Newsletter Info</a></li>
+                                        <li><a href="/probiz/admin/newsletter/add_newsletter.php"><p>Add Newsletter</p></a></li>
+                                    </ul>
+                                </li>
+
+                                
+                            </li>
+                        </ul>
+
+                        <li><a href="/probiz/admin/newsletter/view_mail.php" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-envelope"><span class="badge badge-info"><?= $after_assoc2['unreaded_email']?></span></span><p>Sended Email</p></a></li>
                     </ul>
                 </div><!-- Page Sidebar Inner -->
             </div>

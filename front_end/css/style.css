@@ -432,7 +432,8 @@ blockquote {
 
 #main-banner {
     background-image: url(../img/slider-2.jpg);
-    background-position: top;
+    background-position: center;
+    background-size: cover;
 }
 
 .caption-content {
