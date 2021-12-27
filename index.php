@@ -39,6 +39,15 @@
     $select_newsletter = "SELECT * FROM newsletter WHERE status = 1";
     $select_newsletter_result = mysqli_query($dbconnect, $select_newsletter);
     $after_assoc6 = mysqli_fetch_assoc($select_newsletter_result);
+    
+    // For Team Title
+    $select_teams_title = "SELECT * FROM teams_title WHERE status = 1";
+    $select_teams_title_result = mysqli_query($dbconnect, $select_teams_title);
+    $after_assoc7 = mysqli_fetch_assoc($select_teams_title_result);
+    
+    // For Team Title
+    $select_team = "SELECT * FROM teams WHERE status = 1";
+    $select_team_result = mysqli_query($dbconnect, $select_team);
 ?>
 
 <!DOCTYPE html>
@@ -681,9 +690,9 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="heading text-center">
-                            <h4 class="color-gray">We are expert</h4>
-                            <h2 class="p-color1">Meet Our <span class="p-color">Consultant</span></h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum autem similique obcaecati non magni rerum maxime Officia.</p>
+                            <h4 class="color-gray"><?= $after_assoc7['category']?></h4>
+                            <h2 class="p-color1"><?= $after_assoc7['title']?></h2>
+                            <p><?= $after_assoc7['description']?></p>
                         </div>
                     </div>
                 </div>
@@ -692,9 +701,10 @@
                 <!--Start Team Members Row-->
                 <div class="row">
                     <!--Start Team Member Single-->
+                    <?php foreach($select_team_result as $team) {?>
                     <div class="col-lg-3 col-md-6">
                         <div class="team-member-single fix position-relative text-center">
-                            <img src="front_end/img/team-01.jpg" class="img-fluid" alt="Image">
+                            <img src="/probiz/admin/uploads/teams/<?= $team['profile_image']?>" class="img-fluid" alt="Image">
                             <div class="member-social-icons">
                                 <ul>
                                     <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -704,72 +714,13 @@
                                 </ul>
                             </div>
                             <div class="member-details position-relative">
-                                <h4 class="font-600 color-white">Jhon Doe</h4>
+                                <h4 class="font-600 color-white"><?= $team['name']?></h4>
                                 <p class="color-white">Developer</p>
                             </div>
                         </div>
                     </div>
-                    <!--End Team Member Single-->
-
-                    <!--Start Team Member Single-->
-                    <div class="col-lg-3 col-md-6">
-                        <div class="team-member-single fix position-relative text-center">
-                            <img src="front_end/img/team-02.jpg" class="img-fluid" alt="Image">
-                            <div class="member-social-icons">
-                                <ul>
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="member-details position-relative">
-                                <h4 class="font-600 color-white">Ava Smith</h4>
-                                <p class="color-white">Designer</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Team Member Single-->
-
-                    <!--Start Team Member Single-->
-                    <div class="col-lg-3 col-md-6">
-                        <div class="team-member-single fix position-relative text-center">
-                            <img src="front_end/img/team-03.jpg" class="img-fluid" alt="Image">
-                            <div class="member-social-icons">
-                                <ul>
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="member-details position-relative">
-                                <h4 class="font-600 color-white">Shane Kyle</h4>
-                                <p class="color-white">Marketer</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Team Member Single-->
-
-                    <!--Start Team Member Single-->
-                    <div class="col-lg-3 col-md-6">
-                        <div class="team-member-single fix position-relative text-center">
-                            <img src="front_end/img/team-04.jpg" class="img-fluid" alt="Image">
-                            <div class="member-social-icons">
-                                <ul>
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="member-details position-relative">
-                                <h4 class="font-600 color-white">Graeme Smith</h4>
-                                <p class="color-white">Researcher</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Team Member Single-->
+                    <?php } ?>
+                    <!--End Team Member Single-->                    
                 </div>
                 <!--End Team Members Row-->
             </div>

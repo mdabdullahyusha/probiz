@@ -284,6 +284,14 @@
                                         <li><a href="/probiz/admin/newsletter/add_newsletter.php"><p>Add Newsletter</p></a></li>
                                     </ul>
                                 </li>
+                                
+                                <li class="droplink"><a href="#"><p>Our Team</p><span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        
+                                        <li><a href="/probiz/admin/team/view_team.php">Team Info</a></li>
+                                        <li><a href="/probiz/admin/team/add_team.php"><p>Add Team</p></a></li>
+                                    </ul>
+                                </li>
 
                                 
                             </li>
