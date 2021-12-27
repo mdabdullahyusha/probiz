@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 27, 2021 at 03:41 AM
+-- Generation Time: Dec 27, 2021 at 04:24 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -244,7 +244,7 @@ CREATE TABLE `teams` (
 --
 
 INSERT INTO `teams` (`id`, `name`, `job_post`, `icon_01`, `icon_01_link`, `icon_02`, `icon_02_link`, `icon_03`, `icon_03_link`, `icon_04`, `icon_04_link`, `profile_image`, `status`) VALUES
-(1, 'Phelan Fletcher', 'Doloribus expedita q', 'Totam vero qui eiusm', 'Quia eveniet accusa', 'Dolore necessitatibu', 'Aut saepe ad omnis m', 'Neque ut est eaque a', 'Quidem labore eius c', 'Expedita voluptas te', 'Hic incidunt iste s', '1.jpg', 1),
+(1, 'Md Abdullah', 'Front-End Developer', 'fab fa-facebook-f', 'http://mdabdullah.xyz/', 'fab fa-twitter', 'http://mdabdullah.xyz/', 'fab fa-instagram', 'http://mdabdullah.xyz/', 'fab fa-linkedin-in', 'http://mdabdullah.xyz/', '11640574971.jpg', 1),
 (3, 'Charissa Rodriguez', 'Eos corporis tempori', 'Deserunt autem volup', 'Doloremque aut quide', 'Enim recusandae Dol', 'Dolor vitae doloremq', 'Ut eligendi facilis ', 'Dolore sequi cillum ', 'Quo omnis deleniti a', 'Quaerat corrupti no', '3.JPG', 1),
 (4, 'Lydia Bullock', 'Est nisi reiciendis ', 'Voluptas sapiente su', 'Consequuntur laborum', 'Veniam debitis enim', 'Anim ratione nihil l', 'Reiciendis quod omni', 'Modi ex excepteur fu', 'Ad alias molestiae n', 'Omnis aut non deseru', '4.JPG', 1),
 (5, 'Alfreda Hammond', 'Cupiditate id natus ', 'Eligendi eligendi la', 'Voluptatibus est ut ', 'Necessitatibus expli', 'Voluptate iure recus', 'At consectetur est e', 'Distinctio Id sapie', 'Sequi quia nesciunt', 'Harum anim qui Nam i', '5.JPG', 1),
