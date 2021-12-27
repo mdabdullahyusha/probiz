@@ -707,15 +707,15 @@
                             <img src="/probiz/admin/uploads/teams/<?= $team['profile_image']?>" class="img-fluid" alt="Image">
                             <div class="member-social-icons">
                                 <ul>
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="<?= $team['icon_01_link']?>"><i class="<?= $team['icon_01']?>"></i></a></li>
+                                     <li><a href="<?= $team['icon_02_link']?>"><i class="<?= $team['icon_02']?>"></i></a></li>
+                                    <li><a href="<?= $team['icon_03_link']?>"><i class="<?= $team['icon_03']?>"></i></a></li>
+                                    <li><a href="<?= $team['icon_04_link']?>"><i class="<?= $team['icon_04']?>"></i></a></li>
                                 </ul>
                             </div>
                             <div class="member-details position-relative">
                                 <h4 class="font-600 color-white"><?= $team['name']?></h4>
-                                <p class="color-white">Developer</p>
+                                <p class="color-white"><?= $team['job_post']?></p>
                             </div>
                         </div>
                     </div>

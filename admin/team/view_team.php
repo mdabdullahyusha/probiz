@@ -103,14 +103,14 @@
                                         <th scope="row"><?= $key+1?></th>
                                         <td><?= $team['name']?></td>
                                         <td><?= $team['job_post']?></td>
-                                        <td><i class="<?= $team['icon_01']?>"></i></td>
+                                        <td><i class="<?= $team['icon_01']?>" style="font-size: 40px;"></i></td>
                                         <td><?= $team['icon_01_link']?></td>
-                                        <td><i class="<?= $team['icon_02']?>"></i></td>
+                                        <td><i class="<?= $team['icon_02']?>" style="font-size: 40px;"></i></td>
                                         <td><?= $team['icon_02_link']?></td>
-                                        <td><i class="<?= $team['icon_03']?>"></i></td>
+                                        <td><i class="<?= $team['icon_03']?>" style="font-size: 40px;"></i></td>
                                         <td><?= $team['icon_03_link']?></td>
-                                        <td><?= $team['icon_04']?></td>
-                                        <td><i class="<?= $team['icon_04']?>"></i></td>
+                                        <td><i class="<?= $team['icon_04']?>" style="font-size: 40px;"></i></td>
+                                        <td><?= $team['icon_04_link']?></td>
                                         <td><img src="/probiz/admin/uploads/teams/<?= $team['profile_image']?>" width="150" alt=""></td>
                                         <td>
                                             <?php if($team['status'] == 0) {?>
