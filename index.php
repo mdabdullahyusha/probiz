@@ -48,6 +48,75 @@
     // For Team Title
     $select_team = "SELECT * FROM teams WHERE status = 1";
     $select_team_result = mysqli_query($dbconnect, $select_team);
+    
+    // For Blog Title
+    $select_blog_title = "SELECT * FROM blog_title WHERE status = 1";
+    $select_blog_title_result = mysqli_query($dbconnect, $select_blog_title);
+    $after_assoc8 = mysqli_fetch_assoc($select_blog_title_result);
+
+    // For Team Title
+    $select_blog = "SELECT * FROM blogs WHERE status = 1";
+    $select_blog_result = mysqli_query($dbconnect, $select_blog);
+
+    // For Contact Title
+    $select_contact_title = "SELECT * FROM contact_title WHERE status = 1";
+    $select_contact_title_result = mysqli_query($dbconnect, $select_contact_title);
+    $after_assoc9 = mysqli_fetch_assoc($select_contact_title_result);
+    
+    // For Contact Us Title
+    $select_contact_us_title = "SELECT * FROM contact_us WHERE status = 1";
+    $select_contact_us_title_result = mysqli_query($dbconnect, $select_contact_us_title);
+    $after_assoc10 = mysqli_fetch_assoc($select_contact_us_title_result);
+
+    // For Important Link
+    $select_important_link = "SELECT * FROM important_link WHERE status = 1";
+    $select_important_link_result = mysqli_query($dbconnect, $select_important_link);
+    
+    // For Footer Bar
+    $select_footer = "SELECT * FROM footers WHERE status = 1";
+    $select_footer_result = mysqli_query($dbconnect, $select_footer);
+    $after_assoc11 = mysqli_fetch_assoc($select_footer_result);
+    
+    // For Why Us Title
+    $select_why_us_title = "SELECT * FROM why_choose_title WHERE status = 1";
+    $select_why_us_title_result = mysqli_query($dbconnect, $select_why_us_title);
+    $after_assoc12 = mysqli_fetch_assoc($select_why_us_title_result);
+    
+    // For Reason
+    $select_reason = "SELECT * FROM reasons WHERE status = 1";
+    $select_reason_result = mysqli_query($dbconnect, $select_reason);
+    
+    // For Pricing Title
+    $select_pricing_title = "SELECT * FROM pricing_title WHERE status = 1";
+    $select_pricing_title_result = mysqli_query($dbconnect, $select_pricing_title);
+    $after_assoc13 = mysqli_fetch_assoc($select_pricing_title_result);
+    
+    // For Basic Pricing Title
+    $select_basic_pricing_title = "SELECT * FROM basic_pricing WHERE status = 1";
+    $select_basic_pricing_title_result = mysqli_query($dbconnect, $select_basic_pricing_title);
+    $after_assoc14 = mysqli_fetch_assoc($select_basic_pricing_title_result);
+    
+    // For Standard Pricing Title
+    $select_standard_pricing_title = "SELECT * FROM standard_pricing WHERE status = 1";
+    $select_standard_pricing_title_result = mysqli_query($dbconnect, $select_standard_pricing_title);
+    $after_assoc15 = mysqli_fetch_assoc($select_standard_pricing_title_result);
+    
+    // For Basic Pricing Title
+    $select_premium_pricing_title = "SELECT * FROM premium_pricing WHERE status = 1";
+    $select_premium_pricing_title_result = mysqli_query($dbconnect, $select_premium_pricing_title);
+    $after_assoc16 = mysqli_fetch_assoc($select_premium_pricing_title_result);
+    
+    // For Basic Facility
+    $select_basic_facility = "SELECT * FROM basic_pricing_facility WHERE status = 1";
+    $select_basic_facility_result = mysqli_query($dbconnect, $select_basic_facility);
+    
+    // For Standard Facility
+    $select_standard_facility = "SELECT * FROM standard_pricing_facility WHERE status = 1";
+    $select_standard_facility_result = mysqli_query($dbconnect, $select_standard_facility);
+    
+    // For premium Facility
+    $select_premium_facility = "SELECT * FROM premium_pricing_facility WHERE status = 1";
+    $select_premium_facility_result = mysqli_query($dbconnect, $select_premium_facility);
 ?>
 
 <!DOCTYPE html>
@@ -76,6 +145,21 @@
     <link rel="stylesheet" type="text/css" href="front_end/css/style.css">
     <!--Responsive CSS-->
     <link rel="stylesheet" type="text/css" href="front_end/css/responsive.css">
+
+    <style>
+        .why-us-features > div{
+            min-width:100%;
+        }
+        .why-us-features > div > ul{
+            width: 100%;
+            display:flex;
+            flex-flow: row wrap;
+        }
+        .why-us-features > div > ul > li{
+            min-width:calc(50% - 15px);
+            margin-right:15px;
+        }
+    </style>
 </head>
 
 <body>
@@ -454,24 +538,15 @@
                     <!--Start Why Choose Content-->
                     <div class="col-lg-6">
                         <div class="why-us-content">
-                            <h4 class="color-gray">Why Choose Our Company ?</h4>
-                            <h2 class="p-color1">We Are Best <span class="p-color"> Service Provider Company Of The Industry</span></h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum labore minus dolore ab itaque animi sit, quae non quas architecto quaerat fugit in temporibus sequi laboriosam, repellat tempore consequuntur voluptatem.</p>
+                            <h4 class="color-gray"><?= $after_assoc12['category']?></h4>
+                            <h2 class="p-color1"><?= $after_assoc12['title']?></h2>
+                            <p><?= $after_assoc12['description']?></p>
                             <div class="why-us-features row">
                                 <div class="col-md-6">
                                     <ul>
-                                        <li><i class="fas fa-check"></i> High Quality Service</li>
-                                        <li><i class="fas fa-check"></i> No Extra Or Hidden Charge</li>
-                                        <li><i class="fas fa-check"></i> 100% Satisfiction Gurantee</li>
-                                        <li><i class="fas fa-check"></i> All Kinds Of Business Support</li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-6">
-                                    <ul>
-                                        <li><i class="fas fa-check"></i> Dedicated Customer Support</li>
-                                        <li><i class="fas fa-check"></i> Great and Effective Tips</li>
-                                        <li><i class="fas fa-check"></i> Special Promotion Technique</li>
-                                        <li><i class="fas fa-check"></i> 24/7 Dedicated Support</li>
+                                        <?php foreach($select_reason_result as $reason) {?>
+                                        <li><i class="fas fa-check"></i> <?= $reason['reasons']?></li>
+                                        <?php } ?>
                                     </ul>
                                 </div>
                             </div>
@@ -482,7 +557,7 @@
                     <!--Start Why Choose Image-->
                     <div class="col-lg-6">
                         <div class="why-us-img">
-                            <img src="front_end/img/why-us-bg.jpg" class="img-fluid" alt="Image">
+                            <img src="/probiz/admin/uploads/why_choose/<?= $after_assoc12['why_choose_image']?>" class="img-fluid" alt="Image">
                         </div>
                     </div>
                     <!--End Why Choose Image-->
@@ -538,9 +613,9 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="heading text-center">
-                            <h4 class="color-gray">Choose Best One</h4>
-                            <h2 class="p-color1">Our<span class="p-color"> Pricing Plan </span></h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum autem similique obcaecati non magni rerum maxime Officia.</p>
+                            <h4 class="color-gray"><?= $after_assoc13['category']?></h4>
+                            <h2 class="p-color1"><?= $after_assoc13['title']?></span></h2>
+                            <p><?= $after_assoc13['description']?></p>
                         </div>
                     </div>
                 </div>
@@ -552,22 +627,20 @@
                     <div class="col-md-4">
                         <div class="pricing-table-single fix text-center">
                             <div class="table-title">
-                                <h2 class="p-color">Standard</h2>
+                                <h2 class="p-color"><?= $after_assoc14['title']?></h2>
                             </div>
                             <div class="price-amount">
-                                <h2 class="color-white">$ 12.99</h2>
+                                <h2 class="color-white">$ <?= $after_assoc14['price']?></h2>
                             </div>
                             <div class="table-details">
                                 <ul>
-                                    <li>PDF Reports</li>
-                                    <li>Basic Quota</li>
-                                    <li>Five Brand Monitors</li>
-                                    <li>24/7 Free Support</li>
-                                    <li>Private Forums</li>
+                                    <?php foreach($select_basic_facility_result as $basic_facility) {?>
+                                    <li><?= $basic_facility['facility']?></li>
+                                    <?php } ?>
                                 </ul>
                             </div>
                             <div class="table-btn">
-                                <a href="#">Buy Now</a>
+                                <a href="#"><?= $after_assoc14['btn']?></a>
                             </div>
                         </div>
                     </div>
@@ -577,22 +650,20 @@
                     <div class="col-md-4">
                         <div class="pricing-table-single fix text-center">
                             <div class="table-title">
-                                <h2 class="p-color">Standard</h2>
+                                <h2 class="p-color"><?= $after_assoc15['title']?></h2>
                             </div>
                             <div class="price-amount">
-                                <h2 class="color-white">$ 12.99</h2>
+                                <h2 class="color-white">$ <?= $after_assoc15['price']?></h2>
                             </div>
                             <div class="table-details">
                                 <ul>
-                                    <li>PDF Reports</li>
-                                    <li>Basic Quota</li>
-                                    <li>Five Brand Monitors</li>
-                                    <li>24/7 Free Support</li>
-                                    <li>Private Forums</li>
+                                <?php foreach($select_standard_facility_result as $standard_facility) {?>
+                                    <li><?= $standard_facility['facility']?></li>
+                                    <?php } ?>
                                 </ul>
                             </div>
                             <div class="table-btn">
-                                <a href="#">Buy Now</a>
+                                <a href="#"><?= $after_assoc15['btn']?></a>
                             </div>
                         </div>
                     </div>
@@ -602,22 +673,20 @@
                     <div class="col-md-4">
                         <div class="pricing-table-single fix text-center">
                             <div class="table-title">
-                                <h2 class="p-color">Premium</h2>
+                                <h2 class="p-color"><?= $after_assoc16['title']?></h2>
                             </div>
                             <div class="price-amount">
-                                <h2 class="color-white">$ 19.99</h2>
+                                <h2 class="color-white">$ <?= $after_assoc16['price']?></h2>
                             </div>
                             <div class="table-details">
                                 <ul>
-                                    <li>PDF Reports</li>
-                                    <li>Basic Quota</li>
-                                    <li>Five Brand Monitors</li>
-                                    <li>24/7 Free Support</li>
-                                    <li>Private Forums</li>
+                                <?php foreach($select_premium_facility_result as $premium_facility) {?>
+                                    <li><?= $premium_facility['facility']?></li>
+                                    <?php } ?>
                                 </ul>
                             </div>
                             <div class="table-btn">
-                                <a href="#">Buy Now</a>
+                                <a href="#"><?= $after_assoc16['btn']?></a>
                             </div>
                         </div>
                     </div>
@@ -858,9 +927,9 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="heading text-center">
-                            <h4 class="color-gray">Up To Date</h4>
-                            <h2 class="p-color1">Our <span class="p-color">Latest Blog</span> </h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum autem similique obcaecati non magni rerum maxime Officia.</p>
+                            <h4 class="color-gray"><?= $after_assoc8['category']?></h4>
+                            <h2 class="p-color1"><?= $after_assoc8['title']?></h2>
+                            <p><?= $after_assoc8['description']?></p>
                         </div>
                     </div>
                 </div>
@@ -869,108 +938,32 @@
                 <!--Start Blog Post Row-->
                 <div class="row">
                     <!--Start Latest Post Single-->
+                    <?php foreach ($select_blog_result as $blog) { ?>
                     <div class="col-lg-6">
                         <div class="blog-post-single latest row fix">
                             <div class="col-md-6 p-0">
                                 <div class="post-media position-relative">
-                                    <a href="blog-details.html"><img src="front_end/img/blog-01.jpg" class="img-fluid" alt="Image"></a>
+                                    <a href="blog-details.html"><img src="/probiz/admin/uploads/blogs/<?= $blog['blog_image']?>" class="img-fluid" alt="Image"></a>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="post-details">
                                     <div class="post-title">
-                                        <h2><a href="blog-details.html">Group Discussion Benefits</a></h2>
+                                        <h2><a href="blog-details.html"><?= $blog['title']?></a></h2>
                                     </div>
                                     <div class="post-fact">
-                                        <p><a href="#"><i class="icofont icofont-user"></i> Admin</a><a href="#"><i class="icofont icofont-comment"></i> 15 Comments</a><a href="#"><i class="icofont icofont-like"></i> 22 Like</a></p>
+                                        <p><a href="#"><i class="icofont icofont-user"></i> <?php if($blog['posted_from'] == 1) {echo 'Admin';} else {echo 'Moderator';}?></a><a href="#"><i class="icofont icofont-comment"></i> <?= $blog['comment']?> Comments</a><a href="#"><i class="icofont icofont-like"></i> <?= $blog['blog_like']?> Like</a></p>
                                     </div>
                                     <div class="post-content">
-                                        <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
-                                        <p><span><a class="font-500 p-color" href="blog-details.html"><i class="icofont icofont-arrow-right p-color"></i> Read More</a></span><span class="float-right"><a class="font-500 p-color" href="#"><i class="icofont icofont-user p-color"></i> 26 Mar 2018</a></span></p>
+                                        <p><?= substr($blog['description'], 0, 50). '...'?></p>
+                                        <p><span><a class="font-500 p-color" href="blog-details.html"><i class="icofont icofont-arrow-right p-color"></i> Read More</a></span><span class="float-right"><a class="font-500 p-color" href="#"><i class="icofont icofont-user p-color"></i> <?= $blog['created_at']?></a></span></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!--End Latest Post Single-->
-
-                    <!--Start Latest Post Single-->
-                    <div class="col-lg-6">
-                        <div class="blog-post-single latest row fix">
-                            <div class="col-md-6 p-0">
-                                <div class="post-media position-relative">
-                                    <a href="blog-details.html"><img src="front_end/img/blog-02.jpg" class="img-fluid" alt="Image"></a>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="post-details">
-                                    <div class="post-title">
-                                        <h2><a href="blog-details.html">Business Development</a></h2>
-                                    </div>
-                                    <div class="post-fact">
-                                        <p><a href="blog-details.html"><i class="icofont icofont-user"></i> Client</a><a href="#"><i class="icofont icofont-comment"></i> 11 Comments</a><a href="#"><i class="icofont icofont-like"></i> 19 Like</a></p>
-                                    </div>
-                                    <div class="post-content">
-                                        <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
-                                        <p><span><a class="font-500 p-color" href="blog-details.html"><i class="icofont icofont-arrow-right p-color"></i> Read More</a></span><span class="float-right"><a class="font-500 p-color" href="#"><i class="icofont icofont-user p-color"></i> 28 Mar 2018</a></span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Latest Post Single-->
-
-                    <!--Start Latest Post Single-->
-                    <div class="col-lg-6">
-                        <div class="blog-post-single latest row fix">
-                            <div class="col-md-6 p-0">
-                                <div class="post-media position-relative">
-                                    <a href="blog-details.html"><img src="front_end/img/blog-03.jpg" class="img-fluid" alt="Image"></a>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="post-details">
-                                    <div class="post-title">
-                                        <h2><a href="blog-details.html">Product Promotion Tips</a></h2>
-                                    </div>
-                                    <div class="post-fact">
-                                        <p><a href="#"><i class="icofont icofont-user"></i> Client</a><a href="#"><i class="icofont icofont-comment"></i> 23 Comments</a><a href="#"><i class="icofont icofont-like"></i> 18 Like</a></p>
-                                    </div>
-                                    <div class="post-content">
-                                        <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
-                                        <p><span><a class="font-500 p-color" href="blog-details.html"><i class="icofont icofont-arrow-right p-color"></i> Read More</a></span><span class="float-right"><a class="font-500 p-color" href="#"><i class="icofont icofont-user p-color"></i> 12 Apr 2018</a></span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Latest Post Single-->
-
-                    <!--Start Latest Post Single-->
-                    <div class="col-lg-6">
-                        <div class="blog-post-single latest row fix">
-                            <div class="col-md-6 p-0">
-                                <div class="post-media position-relative">
-                                    <a href="blog-details.html"><img src="front_end/img/blog-04.jpg" class="img-fluid" alt="Image"></a>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="post-details">
-                                    <div class="post-title">
-                                        <h2><a href="blog-details.html">Effective Anlysis Ways</a></h2>
-                                    </div>
-                                    <div class="post-fact">
-                                        <p><a href="#"><i class="icofont icofont-user"></i> Admin</a><a href="#"><i class="icofont icofont-comment"></i> 24 Comments</a><a href="#"><i class="icofont icofont-like"></i> 114 Like</a></p>
-                                    </div>
-                                    <div class="post-content">
-                                        <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci.</p>
-                                        <p><span><a class="font-500 p-color" href="blog-details.html"><i class="icofont icofont-arrow-right p-color"></i> Read More</a></span><span class="float-right"><a class="font-500 p-color" href="#"><i class="icofont icofont-user p-color"></i> 18 Apr 2018</a></span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Latest Post Single-->
+                    <?php } ?>
 
                     <!--Start Button-->
                     <div class="col-lg-12">
@@ -994,9 +987,9 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="heading text-center">
-                            <h4 class=" color-gray">Need Any Help ?</h4>
-                            <h2 class="p-color1">Contact <span class="p-color">With Us</span></h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum autem similique obcaecati non magni rerum maxime Officia.</p>
+                            <h4 class=" color-gray"><?= $after_assoc9['category']?></h4>
+                            <h2 class="p-color1"><?= $after_assoc9['title']?></h2>
+                            <p><?= $after_assoc9['description']?></p>
                         </div>
                     </div>
                 </div>
@@ -1011,32 +1004,32 @@
                             <div class="row">
                                 <div class="col-lg-6 col-sm-6">
                                     <div class="contact-info-single text-center">
-                                        <i class="fas fa-location-arrow"></i>
-                                        <p class="font-500">23/4 Mount Avenue <br> New York, USA</p>
+                                        <i class="<?= $after_assoc10['address_icon']?>"></i>
+                                        <p class="font-500"><?= $after_assoc10['address']?></p>
                                     </div>
                                     <!--End Contact Info Single-->
                                 </div>
                                 <div class="col-lg-6 col-sm-6">
                                     <!--Start Contact Info Single-->
                                     <div class="contact-info-single text-center">
-                                        <i class="far fa-envelope"></i>
-                                        <p class="font-500">support@email.com <br> example@support.com</p>
+                                        <i class="<?= $after_assoc10['mail_icon']?>"></i>
+                                        <p class="font-500"><?= $after_assoc10['mail']?></p>
                                     </div>
                                     <!--End Contact Info Single-->
                                 </div>
                                 <div class="col-lg-6 col-sm-6">
                                     <!--Start Contact Info Single-->
                                     <div class="contact-info-single text-center">
-                                        <i class="fas fa-mobile-alt"></i>
-                                        <p class="font-500">+011 12345 67890 <br> +022 12345 67890</p>
+                                        <i class="<?= $after_assoc10['mobile_icon']?>"></i>
+                                        <p class="font-500"><?= $after_assoc10['mobile']?></p>
                                     </div>
                                     <!--End Contact Info Single-->
                                 </div>
                                 <div class="col-lg-6 col-sm-6">
                                      <!--Start Contact Info Single-->
                                     <div class="contact-info-single text-center">
-                                        <i class="fas fa-phone"></i>
-                                        <p class="font-500">+011 12345 67890 <br> +022 12345 67890</p>
+                                        <i class="<?= $after_assoc10['telephone_icon']?>"></i>
+                                        <p class="font-500"><?= $after_assoc10['telephone']?></p>
                                     </div>
                                     <!--End Contact Info Single-->
                                 </div>
@@ -1048,7 +1041,7 @@
                     <!--Start Contact Form-->
                     <div class="col-lg-6">
                         <div class="contact-form">
-                            <form>
+                            <form action="/probiz/admin/contact_us/message_post.php" method="POST">
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Name*" id="name" name="name" required>
                                 </div>
@@ -1088,12 +1081,12 @@
                         <div class="col-lg-3 col-md-6 mb-3">
                             <div class="footer-about">
                                 <h3 class="color-white">About Us</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae quod quas tenetur accusantium nulla obcaecati ex veniam quia atque, necessitatibus.</p>
+                                <p><?= substr($after_assoc4['description'], 0, 100). ',,,'?></p>
                             </div>
                             <div class="footer-newsletter">
                                 <h4 class="color-white">Subscribe Now</h4>
-                                <form>
-                                  <input type="email" name="email"><input type="submit" value="Subscribe">
+                                <form action="/probiz/admin/newsletter/newsletter_mail.php" method="POST">
+                                  <input type="email" name="newsletter_mail"><input type="submit" value="Subscribe">
                                 </form>
                             </div>
                         </div>
@@ -1104,12 +1097,9 @@
                             <div class="footer-links">
                                 <h3 class="color-white">Important Links</h3>
                                 <ul>
-                                    <li><a href="#"><i class="fas fa-angle-right"></i> Terms and Condition</a></li>
-                                    <li><a href="#"><i class="fas fa-angle-right"></i> Our Policy</a></li>
-                                    <li><a href="#"><i class="fas fa-angle-right"></i> Copyright Notice</a></li>
-                                    <li><a href="#"><i class="fas fa-angle-right"></i> Our Best Services</a></li>
-                                    <li><a href="#"><i class="fas fa-angle-right"></i> Product Promotion Tips</a></li>
-                                    <li><a href="#"><i class="fas fa-angle-right"></i> Business Financing</a></li>
+                                    <?php foreach($select_important_link_result as $important_link) {?>
+                                    <li><a href="<?= $important_link['link']?>"><i class="fas fa-angle-right"></i><?= $important_link['link_info']?></a></li>
+                                    <?php } ?>
                                 </ul>
                             </div>
                         </div>
@@ -1120,39 +1110,17 @@
                             <div class="footer-latest-news">
                                 <h3 class="color-white">Latest News</h3>
                                 <!--Start Recent Post Single-->
+                                <?php foreach($select_blog_result as $blog_in_footer) {?>
                                 <div class="recent-post-single fix">
                                     <div class="post-img float-left">
-                                        <a href="#"><img src="front_end/img/news-01.jpg" class="img-fluid" alt="Image"></a>
+                                        <a href="#"><img src="/probiz/admin/uploads/blogs/<?= $blog_in_footer['blog_image']?>" class="img-fluid" alt="Image"></a>
                                     </div>
                                     <div class="post-cont float-right">
-                                        <h5><a class="color-white" href="#">Business Promotion Tips</a></h5>
-                                        <p><span>15 Jun, 2017</span></p>
+                                        <h5><a class="color-white" href="#"><?= substr($blog_in_footer['title'], 0, 20). ',,,'?></a></h5>
+                                        <p><span><?= $blog_in_footer['created_at']?></span></p>
                                     </div>
                                 </div>
-                                <!--End Recent Post Single-->
-
-                                <!--Start Recent Post Single-->
-                                <div class="recent-post-single fix">
-                                    <div class="post-img float-left">
-                                        <a href="#"><img src="front_end/img/news-02.jpg" class="img-fluid" alt="Image"></a>
-                                    </div>
-                                    <div class="post-cont float-right">
-                                        <h5><a class="color-white" href="#">Product Marketing Ways</a></h5>
-                                        <p><span>26 Jun, 2017</span></p>
-                                    </div>
-                                </div>
-                                <!--End Recent Post Single-->
-
-                                <!--Start Recent Post Single-->
-                                <div class="recent-post-single fix">
-                                    <div class="post-img float-left">
-                                        <a href="#"><img src="front_end/img/news-03.jpg" class="img-fluid" alt="Image"></a>
-                                    </div>
-                                    <div class="post-cont float-right">
-                                        <h5><a class="color-white" href="#">Effective Marketing Ways</a></h5>
-                                        <p><span>28 Jun, 2017</span></p>
-                                    </div>
-                                </div>
+                                <?php } ?>
                                 <!--End Recent Post Single-->
                             </div>
                         </div>
@@ -1164,10 +1132,9 @@
                                 <h3 class="color-white">Follow Us</h3>
                                 <p class="mb-3">We are happy to see you here.</p>
                                 <ul>
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <?php foreach($select_social_icon_result as $social_icon_footer) { ?>
+                                    <li><a href="<?= $social_icon_footer['link']?>"><i class="<?= $social_icon_footer['social_icon']?>"></i></a></li>
+                                    <?php } ?>
                                 </ul>
                             </div>
                         </div>
@@ -1182,7 +1149,7 @@
 
             <!--Start Footer Bottom-->
             <div class="footer-bottom">
-                <p class="color-white text-center"> &copy; Copy 2018. All Rights Reserved By <a class="p-color" href="https://themeforest.net/user/codeglamour">CodeGlamour.</a></p>
+                <p class="color-white text-center"> &copy; <?= $after_assoc11['footer']?> <a class="p-color" href="<?= $after_assoc11['sponsor_link']?>"><?= $after_assoc11['sponsor_name']?></a></p>
             </div>
             <!--End Footer Bottom-->
 
@@ -1223,6 +1190,4 @@
 
 </body>
 
-
-<!-- Mirrored from codeglamour.com/html/18/probizz/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Dec 2021 04:40:42 GMT -->
 </html>

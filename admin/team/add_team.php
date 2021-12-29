@@ -75,9 +75,6 @@
                                                 <input type="text" name="icon_04_link" class="form-control" placeholder="Social Icon 04 Link">
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" name="btn_2_link" class="form-control" placeholder="Btn 02 Link">
-                                            </div>
-                                            <div class="form-group">
                                                 <label for="profile_image">Profile Image</label>
                                                 <input id="profile_image" type="file" name="profile_image" class="form-control">
                                             </div>

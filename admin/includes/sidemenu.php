@@ -8,6 +8,13 @@
     $select_message = "SELECT COUNT(*) as unreaded_email FROM newsletter_mail WHERE status = 0";
     $select_message_result = mysqli_query($dbconnect, $select_message);
     $after_assoc2 = mysqli_fetch_assoc($select_message_result);
+    
+    $select_contact_us_mail = "SELECT COUNT(*) as unreaded_message FROM contact_us_mail";
+    $select_contact_us_mail_result = mysqli_query($dbconnect, $select_contact_us_mail);
+    $after_assoc3 = mysqli_fetch_assoc($select_contact_us_mail_result);
+
+    $select_contact_us = "SELECT * FROM contact_us_mail ORDER BY id DESC";
+    $select_contact_us_result = mysqli_query($dbconnect, $select_contact_us);
 ?>
 <main class="page-content content-wrap">
     <div class="navbar">
@@ -114,62 +121,23 @@
                             <ul class="nav navbar-nav navbar-right">
                                 
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown"><i class="fa fa-envelope"></i><span class="badge badge-success pull-right">4</span></a>
+                                    <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown"><i class="fa fa-envelope"></i><span class="badge badge-success pull-right"><?= $after_assoc3['unreaded_message']?></span></a>
                                     <ul class="dropdown-menu title-caret dropdown-lg" role="menu">
-                                        <li><p class="drop-title">You have 4 new  messages !</p></li>
+                                        <li><p class="drop-title">You have <?= $after_assoc3['unreaded_message']?> new  messages !</p></li>
                                         <li class="dropdown-menu-list slimscroll messages">
                                             <ul class="list-unstyled">
+                                                <?php foreach($select_contact_us_result as $contact_us_mail) {?>
                                                 <li>
                                                     <a href="#">
                                                         <div class="msg-img"><div class="online on"></div><img class="img-circle" src="/probiz/admin/assets/images/avatar2.png" alt=""></div>
-                                                        <p class="msg-name">Sandra Smith</p>
-                                                        <p class="msg-text">Hey ! I'm working on your project</p>
-                                                        <p class="msg-time">3 minutes ago</p>
+                                                        <p class="msg-name"><?= $contact_us_mail['name']?></p>
+                                                        <p class="msg-text"><?= $contact_us_mail['message']?></p>
+                                                        <p class="msg-time"><?= $contact_us_mail['created_at']?></p>
                                                     </a>
                                                 </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <div class="msg-img"><div class="online off"></div><img class="img-circle" src="/probiz/admin/assets/images/avatar4.png" alt=""></div>
-                                                        <p class="msg-name">Amily Lee</p>
-                                                        <p class="msg-text">Hi David !</p>
-                                                        <p class="msg-time">8 minutes ago</p>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <div class="msg-img"><div class="online off"></div><img class="img-circle" src="/probiz/admin/assets/images/avatar3.png" alt=""></div>
-                                                        <p class="msg-name">Christopher Palmer</p>
-                                                        <p class="msg-text">See you soon !</p>
-                                                        <p class="msg-time">56 minutes ago</p>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <div class="msg-img"><div class="online on"></div><img class="img-circle" src="/probiz/admin/assets/images/avatar5.png" alt=""></div>
-                                                        <p class="msg-name">Nick Doe</p>
-                                                        <p class="msg-text">Nice to meet you</p>
-                                                        <p class="msg-time">2 hours ago</p>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <div class="msg-img"><div class="online on"></div><img class="img-circle" src="/probiz/admin/assets/images/avatar2.png" alt=""></div>
-                                                        <p class="msg-name">Sandra Smith</p>
-                                                        <p class="msg-text">Hey ! I'm working on your project</p>
-                                                        <p class="msg-time">5 hours ago</p>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <div class="msg-img"><div class="online off"></div><img class="img-circle" src="/probiz/admin/assets/images/avatar4.png" alt=""></div>
-                                                        <p class="msg-name">Amily Lee</p>
-                                                        <p class="msg-text">Hi David !</p>
-                                                        <p class="msg-time">9 hours ago</p>
-                                                    </a>
-                                                </li>
+                                                <?php } ?>
                                             </ul>
                                         </li>
-                                        <li class="drop-all"><a href="#" class="text-center">All Messages</a></li>
                                     </ul>
                                 </li>
                                 
@@ -272,8 +240,16 @@
                                 <li class="droplink"><a href="#"><p>Contact Now</p><span class="arrow"></span></a>
                                     <ul class="sub-menu">
                                         
-                                        <li><a href="/probiz/admin/contact_now/view_contact_now.php">Contact Now Info</a></li>
-                                        <li><a href="/probiz/admin/contact_now/add_contact_now.php"><p>Add Contact</p></a></li>
+                                        <li><a href="/probiz/admin/why_us/view_contact_now.php">Contact Now Info</a></li>
+                                        <li><a href="/probiz/admin/why_us/add_contact_now.php"><p>Add Contact</p></a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="droplink"><a href="#"><p>Why Choose</p><span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        
+                                        <li><a href="/probiz/admin/why_us/view_why_us.php">Why Choose Info</a></li>
+                                        <li><a href="/probiz/admin/why_us/add_why_us.php"><p>Add Why Choose</p></a></li>
                                     </ul>
                                 </li>
                                 
@@ -285,6 +261,21 @@
                                     </ul>
                                 </li>
                                 
+                                <li class="droplink"><a href="#"><p>Pricing</p><span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        
+                                        <li><a href="/probiz/admin/pricing/view_pricing.php">Pricing Info</a></li>
+                                        <li class="droplink"><a href="#"><p>Add Pricing</p><span class="arrow"></span></a>
+                                            <ul class="sub-menu">
+                                                <li><a href="/probiz/admin/pricing/add_pricing_title.php">Pricing Title</a></li>
+                                                <li><a href="/probiz/admin/pricing/basic_pricing.php">Basic</a></li>
+                                                <li><a href="/probiz/admin/pricing/standard_pricing.php">Standard</a></li>
+                                                <li><a href="/probiz/admin/pricing/premium_pricing.php">Premium</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                
                                 <li class="droplink"><a href="#"><p>Our Team</p><span class="arrow"></span></a>
                                     <ul class="sub-menu">
                                         
@@ -293,11 +284,37 @@
                                     </ul>
                                 </li>
 
+                                <li class="droplink"><a href="#"><p>Our Blog</p><span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        
+                                        <li><a href="/probiz/admin/blog/view_blog.php">Blog Info</a></li>
+                                        <li><a href="/probiz/admin/blog/add_blog.php"><p>Add Blog</p></a></li>
+                                    </ul>
+                                </li>
+                                
+                                <li class="droplink"><a href="#"><p>Contact With Us</p><span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        
+                                        <li><a href="/probiz/admin/contact_us/view_contact.php">Contact Info</a></li>
+                                        <li><a href="/probiz/admin/contact_us/add_contact.php"><p>Add Contact</p></a></li>
+                                    </ul>
+                                </li>
+                                
+                                <li class="droplink"><a href="#"><p>Footer</p><span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        
+                                        <li><a href="/probiz/admin/footer/view_footer.php">Footer Info</a></li>
+                                        <li><a href="/probiz/admin/footer/add_footer.php"><p>Add Footer</p></a></li>
+                                    </ul>
+                                </li>
+
                                 
                             </li>
                         </ul>
 
                         <li><a href="/probiz/admin/newsletter/view_mail.php" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-envelope"><span class="badge badge-info"><?= $after_assoc2['unreaded_email']?></span></span><p>Sended Email</p></a></li>
+                        
+                        <li><a href="/probiz/admin/contact_us/view_contact_info.php" class="waves-effect waves-button"><span class="menu-icon glyphicon glyphicon-phone-alt"><span class="badge badge-info"><?= $after_assoc3['unreaded_message']?></span></span><p>Contact Info</p></a></li>
                     </ul>
                 </div><!-- Page Sidebar Inner -->
             </div>

@@ -1,0 +1,82 @@
+<?php
+    session_start();
+    require '../db.php';
+    require '../includes/header.php';
+    // require 'session_check.php';
+    require '../includes/sidemenu.php';
+?>
+            <div class="page-register">
+                <main class="page-content">
+                    <div class="page-inner">
+                        <div id="main-wrapper">
+                            <div class="row">
+                                <div class="col-md-3 center">
+                                    <div class="login-box">
+                                        <a class="logo-name text-lg text-center">Contact Us Title</a>
+                                        <p class="text-center m-t-md">Add Contact Us Title</p>
+                                        <?php if(isset( $_SESSION['success_t'])) {?>
+                                        <div class="alert alert-success"><?=  $_SESSION['success_t']?></div>
+                                        <?php } unset( $_SESSION['success_t'])?>
+                                        <form class="m-t-md" action="contact_title_post.php" method="POST">
+                                            <div class="form-group">
+                                                <input type="text" name="category" class="form-control" placeholder="Category">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" name="title" class="form-control" placeholder="Title">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" name="description" class="form-control" placeholder="Description">
+                                            </div>
+                                           
+                                            <button type="submit" class="btn btn-success btn-block m-t-xs">Submit</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div><!-- Row -->
+
+                            <div class="row" style="padding-top: 60px;">
+                                <div class="col-md-3 center">
+                                    <div class="login-box">
+                                        <a class="logo-name text-lg text-center">Contact Us</a>
+                                        <p class="text-center m-t-md">Add Contact</p>
+                                        <?php if(isset( $_SESSION['success'])) {?>
+                                        <div class="alert alert-success"><?=  $_SESSION['success']?></div>
+                                        <?php } unset( $_SESSION['success'])?>
+                                        <form class="m-t-md" action="contact_post.php" method="POST">
+                                            
+                                            <div class="form-group">
+                                                <input type="text" name="address_icon" class="form-control" placeholder="Address Icon">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" name="address" class="form-control" placeholder="Address">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" name="mail_icon" class="form-control" placeholder="Mail Icon">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" name="mail" class="form-control" placeholder="mail">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" name="mobile_icon" class="form-control" placeholder="Mobile Icon">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" name="mobile" class="form-control" placeholder="mobile">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" name="telephone_icon" class="form-control" placeholder="Telephone Icon">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" name="telephone" class="form-control" placeholder="telephone">
+                                            </div>
+                                            <button type="submit" class="btn btn-success btn-block m-t-xs">Submit</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div><!-- Row -->
+                        </div><!-- Main Wrapper -->
+                    </div><!-- Page Inner -->
+                </main><!-- Page Content -->
+            </div>
+<?php
+    require '../includes/footer.php';
+?>
