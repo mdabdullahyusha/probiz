@@ -117,6 +117,46 @@
     // For premium Facility
     $select_premium_facility = "SELECT * FROM premium_pricing_facility WHERE status = 1";
     $select_premium_facility_result = mysqli_query($dbconnect, $select_premium_facility);
+    
+    // For Service Title
+    $select_service_title = "SELECT * FROM service_title WHERE status = 1";
+    $select_service_title_result = mysqli_query($dbconnect, $select_service_title);
+    $after_assoc17 = mysqli_fetch_assoc($select_service_title_result);
+    
+    // For Service
+    $select_service = "SELECT * FROM services WHERE status = 1";
+    $select_service_result = mysqli_query($dbconnect, $select_service);
+    
+    // For Features
+    $select_f_service = "SELECT * FROM services WHERE features_status = 1";
+    $select_f_service_result = mysqli_query($dbconnect, $select_f_service);
+    
+    // For Counter BG Image
+    $select_counter_img = "SELECT * FROM counter_image WHERE status = 1";
+    $select_counter_img_result = mysqli_query($dbconnect, $select_counter_img);
+    $after_assoc18 = mysqli_fetch_assoc($select_counter_img_result);
+    
+    // For Features
+    $select_counter = "SELECT * FROM counter WHERE status = 1";
+    $select_counter_result = mysqli_query($dbconnect, $select_counter);
+
+    // For Portfolio Title
+    $select_port_title = "SELECT * FROM portfolio_title WHERE status = 1";
+    $select_port_title_result = mysqli_query($dbconnect, $select_port_title);
+    $after_assoc19 = mysqli_fetch_assoc($select_port_title_result);
+    
+    // For Portfolio Image
+    $select_port_img = "SELECT * FROM portfolio_image WHERE status = 1";
+    $select_port_img_result = mysqli_query($dbconnect, $select_port_img);
+    
+    // For Testimonial Title
+    $select_testi_title = "SELECT * FROM testi_title WHERE status = 1";
+    $select_testi_title_result = mysqli_query($dbconnect, $select_testi_title);
+    $after_assoc20 = mysqli_fetch_assoc($select_testi_title_result);
+    
+    // For Testimonial
+    $select_testimonial = "SELECT * FROM testimoni WHERE status = 1";
+    $select_testimonial_result = mysqli_query($dbconnect, $select_testimonial);
 ?>
 
 <!DOCTYPE html>
@@ -251,35 +291,17 @@
             <div class="container">
                 <!--Start Features Row-->
                 <div class="row">
+                    <?php foreach($select_f_service_result as $f_service) {?>
                     <!--Start Feature Single-->
                     <div class="col-12 col-lg-4 col-md-4">
                         <div class="feature-single text-center">
-                            <img src="front_end/img/1.png" alt="icon">
-                            <h4><span class="p-color1">Great</span>  Strategy</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat id ex, facilis provident delectus, tempore.</p>
+                            <img src="/probiz/admin/uploads/services/<?= $f_service['service_image']?>" alt="icon">
+                            <h4><span class="p-color1"><?= $f_service['title']?></h4>
+                            <p><?= $f_service['description']?></p>
                         </div>
                     </div>
                     <!--End Feature Single-->
-
-                    <!--Start Feature Single-->
-                    <div class="col-12 col-lg-4 col-md-4">
-                        <div class="feature-single text-center">
-                            <img src="front_end/img/2.png" alt="icon">
-                            <h4><span class="p-color1">Effective</span> Marketing</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat id ex, facilis provident delectus, tempore.</p>
-                        </div>
-                    </div>
-                    <!--End Feature Single-->
-
-                    <!--Start Feature Single-->
-                    <div class="col-12 col-lg-4 col-md-4">
-                        <div class="feature-single text-center">
-                            <img src="front_end/img/3.png" alt="icon">
-                            <h4><span class="p-color1">Best</span> Promotion</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat id ex, facilis provident delectus, tempore.</p>
-                        </div>
-                    </div>
-                    <!--End Feature Single-->
+                    <?php } ?>
                 </div>
                 <!--End Features Row-->
             </div>
@@ -325,9 +347,9 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="heading text-center">
-                            <h4 class="color-gray">What We Do</h4>
-                            <h2>Our <span class="p-color">Services</span></h2>
-                            <p>We work with you to build comprehensive, thoughtful, and purpose-driven identities and experiences. Let’s talk about job.</p>
+                            <h4 class="color-gray"><?= $after_assoc17['category']?></h4>
+                            <h2><?= $after_assoc17['name']?></h2>
+                            <p><?= $after_assoc17['description']?></p>
                         </div>
                     </div>
                 </div>
@@ -335,65 +357,17 @@
 
                 <!--Start Services Row-->
                 <div class="row">
+                    <?php foreach($select_service_result as $service) { ?>
                     <!--Start Service Single-->
                     <div class="col-lg-4 col-md-6">
                         <div class="service-single text-center">
-                            <img src="front_end/img/1.png" alt="icon">
-                            <h4 class="p-color1">BRANDING</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat id ex, facilis provident delectus, tempore.</p>
+                            <img src="/probiz/admin/uploads/services/<?= $service['service_image']?>" alt="icon">
+                            <h4 class="p-color1"><?= $service['title']?></h4>
+                            <p><?= $service['description']?></p>
                         </div>
                     </div>
                     <!--End Service Single-->
-
-                    <!--Start Service Single-->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-single text-center">
-                             <img src="front_end/img/2.png" alt="icon">
-                            <h4 class="p-color1">FINANCE</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat id ex, facilis provident delectus, tempore.</p>
-                        </div>
-                    </div>
-                    <!--End Service Single-->
-
-                    <!--Start Service Single-->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-single text-center">
-                             <img src="front_end/img/3.png" alt="icon">
-                            <h4 class="p-color1">ADVERTISING</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat id ex, facilis provident delectus, tempore.</p>
-                        </div>
-                    </div>
-                    <!--End Service Single-->
-
-                    <!--Start Service Single-->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-single text-center">
-                             <img src="front_end/img/1.png" alt="icon">
-                            <h4 class="p-color1">FINANCE</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat id ex, facilis provident delectus, tempore.</p>
-                        </div>
-                    </div>
-                    <!--End Service Single-->
-
-                    <!--Start Service Single-->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-single text-center">
-                             <img src="front_end/img/2.png" alt="icon">
-                            <h4 class="p-color1">ADVERTISING</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat id ex, facilis provident delectus, tempore.</p>
-                        </div>
-                    </div>
-                    <!--End Service Single-->
-
-                    <!--Start Service Single-->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-single text-center">
-                             <img src="front_end/img/3.png" alt="icon">
-                            <h4 class="p-color1">SUPPORT</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat id ex, facilis provident delectus, tempore.</p>
-                        </div>
-                    </div>
-                    <!--End Service Single-->
+                    <?php } ?>
                 </div>
                 <!--End Services Row-->
 
@@ -411,9 +385,9 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="heading text-center">
-                            <h4 class="color-gray">Work Sample</h4>
-                            <h2>Our <span class="p-color">Portfolio</span></h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum autem similique obcaecati non magni rerum maxime Officia.</p>
+                            <h4 class="color-gray"><?= $after_assoc19['category']?></h4>
+                            <h2><span class="p-color"><?= $after_assoc19['title']?></span></h2>
+                            <p><?= $after_assoc19['description']?></p>
                         </div>
                     </div>
                 </div>
@@ -439,67 +413,21 @@
 
                     <!-- Portfolio Recent Projects -->
                     <div id="portfolio" class="row wow fadeInUp" data-wow-delay="0.8s">
-                      <div class="col-md-6 col-lg-4 col-lg-4 col-xl-4 mix marketing planning">
-                        <div class="portfolio-item">
-                          <div class="shot-item">
-                            <a class="overlay lightbox" href="img/port-01.jpg">
-                              <img src="front_end/img/port-01.jpg" alt="" />  
-                              <i class="fa fa-eye item-icon"></i>
-                            </a>
-                          </div>               
+                        <?php foreach($select_port_img_result as $port_img) {?>
+                        <div class="col-md-6 col-lg-4 col-lg-4 col-xl-4 mix <?= $port_img['class_name']?>">
+                            <div class="portfolio-item">
+                                <div class="shot-item">
+                                    <a class="overlay lightbox" href="#">
+                                    <img src="/probiz/admin/uploads/portfolio_image/<?= $port_img['port_img']?>" alt="" />  
+                                    <i class="fa fa-eye item-icon"></i>
+                                    </a>
+                                </div>               
+                            </div>
                         </div>
-                      </div>
-                      <div class="col-md-6 col-lg-4 col-lg-4 col-xl-4 mix planning">
-                        <div class="portfolio-item">
-                          <div class="shot-item">
-                            <a class="overlay lightbox" href="img/port-02.jpg">
-                              <img src="front_end/img/port-02.jpg" alt="" />  
-                              <i class="fa fa-eye item-icon"></i>
-                            </a>
-                          </div>               
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-lg-4 col-lg-4 col-xl-4 mix research">
-                        <div class="portfolio-item">
-                          <div class="shot-item">
-                            <a class="overlay lightbox" href="img/port-03.jpg">
-                              <img src="front_end/img/port-03.jpg" alt="" />  
-                              <i class="fa fa-eye item-icon"></i>
-                            </a>
-                          </div>               
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-lg-4 col-lg-4 col-xl-4 mix marketing research">
-                        <div class="portfolio-item">
-                          <div class="shot-item">
-                            <a class="overlay lightbox" href="img/port-04.jpg">
-                              <img src="front_end/img/port-04.jpg" alt="" />  
-                              <i class="fa fa-eye item-icon"></i>
-                            </a>
-                          </div>               
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-lg-4 col-lg-4 col-xl-4 mix marketing planning">
-                        <div class="portfolio-item">
-                          <div class="shot-item">
-                            <a class="overlay lightbox" href="img/port-05.jpg">
-                              <img src="front_end/img/port-05.jpg" alt="" />  
-                              <i class="fa fa-eye item-icon"></i>
-                            </a>
-                          </div>               
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-lg-4 col-lg-4 col-xl-4 mix planning research">
-                        <div class="portfolio-item">
-                          <div class="shot-item">
-                            <a class="overlay lightbox" href="img/port-06.jpg">
-                              <img src="front_end/img/port-06.jpg" alt="" />  
-                              <i class="fa fa-eye item-icon"></i>
-                            </a>
-                          </div>               
-                        </div>
-                      </div>
+                        <?php } ?>
                     </div>
+                    <!-- Portfolio Recent Projects -->
+
                   </div>
                 </div>
           </div>
@@ -699,51 +627,24 @@
         <!--End Pricing Section-->
 
         <!--Start Counter Section-->
-        <section id="counter" class="bg-cover position-relative">
+        <section id="counter" class="bg-cover position-relative" style="background: url(/probiz/admin/uploads/counter/<?= $after_assoc18['counter_image']?>); background-attachment:fixed; background-size:cover; background-position:center;">
             <div class="overlay"></div>
             <!--Start Container-->
             <div class="container">
                 <!--Start Counter Row-->
                 <div class="row">
+                    <?php foreach($select_counter_result as $counter) {?>
                     <!--Start Counter Single-->
                     <div class="col-lg-3 col-md-6">
                         <div class="counter-single text-center">
-                            <i class="fas fa-users"></i>
-                            <h2 class="color-white">1,280</h2>
-                            <h6 class="">Total Client</h6>
+                            <i class="<?= $counter['icon_link']?>"></i>
+                            <h2 class="color-white"><?= $counter['number']?></h2>
+                            <h6 class=""><?= $counter['description']?></h6>
                         </div>
                     </div>
                     <!--End Counter Single-->
+                    <?php } ?>
 
-                    <!--Start Counter Single-->
-                    <div class="col-lg-3 col-md-6">
-                        <div class="counter-single text-center">
-                            <i class="far fa-star"></i>
-                            <h2 class="color-white">1,020</h2>
-                            <h6 class="">5 Star Rating</h6>
-                        </div>
-                    </div>
-                    <!--End Counter Single-->
-
-                    <!--Start Counter Single-->
-                    <div class="col-lg-3 col-md-6">
-                        <div class="counter-single text-center">
-                            <i class="fas fa-chess-pawn"></i>
-                            <h2 class="color-white">560</h2>
-                            <h6 class="">Won Award</h6>
-                        </div>
-                    </div>
-                    <!--End Counter Single-->
-
-                    <!--Start Counter Single-->
-                    <div class="col-lg-3 col-md-6">
-                        <div class="counter-single text-center">
-                            <i class="fas fa-flag-checkered"></i>
-                            <h2 class="color-white">1,550</h2>
-                            <h6 class="">Complete Project</h6>
-                        </div>
-                    </div>
-                    <!--End Counter Single-->
                 </div>
                 <!--End Counter Row-->
             </div>
@@ -804,8 +705,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="heading text-center">
-                        <h4 class="color-gray">Our Client Reviews</h4>
-                        <h2 class="p-color1">Our <span class="p-color">Testimonials</span></h2>
+                        <h4 class="color-gray"><?= $after_assoc20['category']?></h4>
+                        <h2 class="p-color1"><span class="p-color"><?= $after_assoc20['title']?></span></h2>
                     </div>
                 </div>
             </div>
@@ -814,103 +715,38 @@
             <div class="row justify-content-center">
                   <div class="col-12 col-lg-10">
                       <div class="slider slider-for">
+                          <?php foreach($select_testimonial_result as $testimonial) { ?>
                           <!-- Client testimonial Text  -->
                           <div class="client-testimonial-text text-center">
                               <div class="client">
                                   <i class="fa fa-quote-left" aria-hidden="true"></i>
                               </div>
                               <div class="client-description text-center">
-                                  <p>“ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ut labore et dolore magna aliqua. ”</p>
+                                  <p>“ <?= $testimonial['description']?> ”</p>
                               </div>
                               <div class="star-icon text-center">
+                                  <?php $star = $testimonial['star_rating'];
+                                    for($i = 1; $i <= $star; $i++) { ?>
                                   <i class="fa fa-star"></i>
-                                  <i class="fa fa-star"></i>
-                                  <i class="fa fa-star"></i>
-                                  <i class="fa fa-star"></i>
-                                  <i class="fa fa-star"></i>
+                                  <?php } ?>
                               </div>
                               <div class="client-name text-center">
-                                  <h5>Aigars Silkalns</h5>
-                                  <p>Ceo Colorlib</p>
+                                  <h5><?= $testimonial['name']?></h5>
+                                  <p><?= $testimonial['post']?></p>
                               </div>
                           </div>
                           <!-- Client testimonial Text  -->
-                          <div class="client-testimonial-text text-center">
-                              <div class="client">
-                                  <i class="fa fa-quote-left" aria-hidden="true"></i>
-                              </div>
-                              <div class="client-description text-center">
-                                  <p>“ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ut labore et dolore magna aliqua. ”</p>
-                              </div>
-                              <div class="star-icon text-center">
-                                  <i class="fa fa-star"></i>
-                                  <i class="fa fa-star"></i>
-                                  <i class="fa fa-star"></i>
-                                  <i class="fa fa-star"></i>
-                                  <i class="fa fa-star"></i>
-                              </div>
-                              <div class="client-name text-center">
-                                  <h5>Jennifer</h5>
-                                  <p>Developer</p>
-                              </div>
-                          </div>
-                          <!-- Client testimonial Text  -->
-                          <div class="client-testimonial-text text-center">
-                              <div class="client">
-                                  <i class="fa fa-quote-left" aria-hidden="true"></i>
-                              </div>
-                              <div class="client-description text-center">
-                                  <p>“ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ut labore et dolore magna aliqua.”</p>
-                              </div>
-                              <div class="star-icon text-center">
-                                  <i class="fa fa-star"></i>
-                                  <i class="fa fa-star"></i>
-                                  <i class="fa fa-star"></i>
-                                  <i class="fa fa-star"></i>
-                                  <i class="fa fa-star"></i>
-                              </div>
-                              <div class="client-name text-center">
-                                  <h5>Helen</h5>
-                                  <p>Marketer</p>
-                              </div>
-                          </div>
-                          <!-- Client testimonial Text  -->
-                          <div class="client-testimonial-text text-center">
-                              <div class="client">
-                                  <i class="fa fa-quote-left" aria-hidden="true"></i>
-                              </div>
-                              <div class="client-description text-center">
-                                  <p>“ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ut labore et dolore magna aliqua. ”</p>
-                              </div>
-                              <div class="star-icon text-center">
-                                  <i class="fa fa-star"></i>
-                                  <i class="fa fa-star"></i>
-                                  <i class="fa fa-star"></i>
-                                  <i class="fa fa-star"></i>
-                                  <i class="fa fa-star"></i>
-                              </div>
-                              <div class="client-name text-center">
-                                  <h5>Henry smith</h5>
-                                  <p>Developer</p>
-                              </div>
-                          </div>
+                            <?php }?>
                       </div>
                   </div>
                   <!-- Client Thumbnail Area -->
                   <div class="col-12 col-lg-6">
                       <div class="slider slider-nav">
-                          <div class="client-thumbnail">
-                              <img src="front_end/img/customer.png" alt="Image">
-                          </div>
-                          <div class="client-thumbnail">
-                              <img src="front_end/img/customer.png" alt="Image">
-                          </div>
-                          <div class="client-thumbnail">
-                              <img src="front_end/img/customer.png" alt="Image">
-                          </div>
-                          <div class="client-thumbnail">
-                              <img src="front_end/img/customer.png" alt="Image">
-                          </div>
+                            <?php foreach($select_testimonial_result as $testimonial) { ?>
+                            <div class="client-thumbnail">
+                                <img src="/probiz/admin/uploads/testimonial/<?= $testimonial['testi_image']?>" alt="Image">
+                            </div>
+                            <?php }?>
                       </div>
                   </div>
               </div>

@@ -237,6 +237,22 @@
                                     </ul>
                                 </li>
                                 
+                                <li class="droplink"><a href="#"><p>Feature & Service</p><span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        
+                                        <li><a href="/probiz/admin/service/view_service.php">Service Info</a></li>
+                                        <li><a href="/probiz/admin/service/add_service.php"><p>Add Service</p></a></li>
+                                    </ul>
+                                </li>
+                                
+                                <li class="droplink"><a href="#"><p>Portfolio</p><span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        
+                                        <li><a href="/probiz/admin/portfolio/view_portfolio.php">Portfolio Info</a></li>
+                                        <li><a href="/probiz/admin/portfolio/add_portfolio.php"><p>Add Portfolio</p></a></li>
+                                    </ul>
+                                </li>
+                                
                                 <li class="droplink"><a href="#"><p>Contact Now</p><span class="arrow"></span></a>
                                     <ul class="sub-menu">
                                         
@@ -275,12 +291,29 @@
                                         </li>
                                     </ul>
                                 </li>
+
+                                
+                                <li class="droplink"><a href="#"><p>Counter</p><span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        
+                                        <li><a href="/probiz/admin/counter/view_counter.php">Counter Info</a></li>
+                                        <li><a href="/probiz/admin/counter/add_counter.php"><p>Add Counter</p></a></li>
+                                    </ul>
+                                </li>
                                 
                                 <li class="droplink"><a href="#"><p>Our Team</p><span class="arrow"></span></a>
                                     <ul class="sub-menu">
                                         
                                         <li><a href="/probiz/admin/team/view_team.php">Team Info</a></li>
                                         <li><a href="/probiz/admin/team/add_team.php"><p>Add Team</p></a></li>
+                                    </ul>
+                                </li>
+                                
+                                <li class="droplink"><a href="#"><p>Testimonial</p><span class="arrow"></span></a>
+                                    <ul class="sub-menu">
+                                        
+                                        <li><a href="/probiz/admin/testimonial/view_testimonial.php">Testimonial Info</a></li>
+                                        <li><a href="/probiz/admin/testimonial/add_testimonial.php"><p>Add Testimonial</p></a></li>
                                     </ul>
                                 </li>
 
